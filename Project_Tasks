@@ -1,0 +1,22 @@
+Project Setup:
+- Master VM contains Jenkins Ansible Puppet GIT etc
+- Slave VM (test server) contains Jenkins 
+
+Tasks:
+- Install python,openssh-server & git on slave
+- Install git, chromedriver & Chromium (selenium) on slave through Ansible
+- Use image devopsedu/webapp and add php site from git
+- Create selenium test for PHP webapp to click on about and verify the text written in it,
+- push PHP webapp, Docker & Selenium JAR to Git repo
+
+
+Jenkins Pipeline Tasks: (use pipeline code with stage and steps)
+Job 1 : Install and config puppet on slave node
+Job 2 : Sign the puppet certificate on master using jenkins
+Job 3 : Trigger the puppet agent on slave to install docker
+Job 4 : Pull PHP webapp, docker and selenium JAR from git repo and build and deploy PHP container and test deployment using selenium JAR
+Job 5 : if Job fails delete the running container on slave server 
+
+
+########################
+https://appfleet.com/blog/integrating-ansible-and-docker-in-ci-cd-process-using-jenkins-job/
