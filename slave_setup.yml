@@ -1,0 +1,24 @@
+---
+- hosts: slave
+  become: true
+  become_user: root
+  tasks:
+  - name: Install git & dependencies
+    yum: name={{item}} state=present
+    loop:
+    - yum-utils
+    - git
+  - name: Add Docker CE repository
+    get_url:
+     url: https://download.docker.com/linux/centos/docker-ce.repo
+     dest: /etc/yum.repos.d/docker-ce.repo
+     mode: 644
+  - name: Install Docker
+    yum: 
+     name: docker-ce 
+     state: present
+  - name: start docker service
+    service: 
+     name: docker
+     state: started 
+     enabled: yes
