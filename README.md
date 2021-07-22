@@ -24,6 +24,7 @@ On Slave Server:**
 ------------------------------------------------------------------------------------------------------
 **
 On Master Server:**
+
 6) Add the slave server as node on Jenkins to enable pipline execution on both node
 7) Create a jenkins pipline job and use contents of the Jekins_pipeline to create the job
 8) Execute the piple line job
