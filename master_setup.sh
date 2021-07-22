@@ -42,5 +42,5 @@ sudo systemctl start docker
 sudo systemctl enable jenkins
 sudo systemctl enable docker
 ###############################################################################
-#After install reffer Notes.txt for steps on setting up Jenkins, JDK and Maven#
+#After install reffer md for steps on setting up Jenkins, JDK and Ansible#
 ###############################################################################
