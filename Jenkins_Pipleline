@@ -1,18 +1,22 @@
 pipeline{
     agent none
     stages{
-        stage('Get ansible playbooks and Scripts for master'){
-            agent { label 'masterNode'}
-            steps{
-                git 'https://github.com/shlomojohn/DevopsGit.git'
-            }
-        }
-        stage('Pull git repo of websit for slave'){
-            agent { label 'slaveNode'}
-            steps{
-                git 'https://github.com/shlomojohn/DevopsGit.git'
-            }
-        }
+		stage('Pull git'){
+			parallel{
+				stage('Pull git repo on master'){
+					agent {label 'masterNode'}
+					steps{
+						git 'https://github.com/shlomojohn/DevopsGit.git'
+					}
+				}
+				stage('Pull git repo on slave'){
+					agent {label 'slaveNode'}
+					steps{
+						git 'https://github.com/shlomojohn/DevopsGit.git'
+					}
+				}
+			}
+		}
         stage('Check and install slave dependencies'){
             agent { label 'masterNode'}
             steps{
