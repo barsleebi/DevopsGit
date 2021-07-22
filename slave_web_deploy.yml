@@ -4,4 +4,4 @@
   become_user: root
   tasks:
   - name: "Deploy_docker_container"
-    command: docker run -itd -P 7777:80 websrv
+    command: docker run -itd -p 7777:80 websrv
