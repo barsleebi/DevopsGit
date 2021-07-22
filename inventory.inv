@@ -1,0 +1,7 @@
+[all]
+cmaster
+cslave1
+[slave]
+cslave1
+[master]
+cmaster
