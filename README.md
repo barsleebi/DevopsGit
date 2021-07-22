@@ -56,7 +56,7 @@ On Master Server:**
 
 ![image](https://user-images.githubusercontent.com/30494615/126621169-f8e4d7c1-4c0d-47bb-808f-82b86b4deb88.png)
 
-**Screenshot 6: Job step3 Docker Image created **
+**Screenshot 6: Job step3 Docker Image created**
 
 ![image](https://user-images.githubusercontent.com/30494615/126620925-bad8822c-62cf-4007-b060-6de72e8c2236.png)
 
