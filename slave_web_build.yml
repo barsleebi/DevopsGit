@@ -3,5 +3,5 @@
   become: true
   become_user: root
   tasks:
-  - name: clone a repo
-    git: repo=https://github.com/Vandanahegde96/EdurekaProject.git dest=/tmp/mygitrepo
+  - name: "build_docker_image"
+    command: chdir=/devOps/jenkins/workspace/1_ProjCert/ docker build -t websrv .

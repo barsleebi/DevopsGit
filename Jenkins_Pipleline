@@ -1,0 +1,25 @@
+pipeline{
+    agent { label 'slaveNode'}
+    stages{
+        stage('Check and install slave dependencies'){
+            steps{
+                ansiblePlaybook credentialsId: 'jenkin-root', disableHostKeyChecking: true, installation: 'myAnsible', inventory: 'dynamic_inventory.inv', playbook: 'slave_setup.yml'
+            }
+        }
+        stage('Pull git repo'){
+            steps{
+                git 'https://github.com/shlomojohn/DevopsGit.git'
+            }
+        }
+        stage('Build docker image'){
+            steps{
+                ansiblePlaybook credentialsId: 'jenkin-root', disableHostKeyChecking: true, installation: 'myAnsible', inventory: 'dynamic_inventory.inv', playbook: 'slave_web_build.yml'
+            }
+        }
+        stage('Deploy docker container'){
+            steps{
+                ansiblePlaybook credentialsId: 'jenkin-root', disableHostKeyChecking: true, installation: 'myAnsible', inventory: 'dynamic_inventory.inv', playbook: 'slave_web_deploy.yml'
+            }
+        }
+    }
+}

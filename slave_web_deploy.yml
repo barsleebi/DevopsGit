@@ -3,7 +3,5 @@
   become: true
   become_user: root
   tasks:
-  - name: build docker file
-    command: chdir=/tmp/mygitrepo docker build -t mywebbapp .
-  - name: create container
-    command: docker run -itd -P mywebbapp
+  - name: "Deploy_docker_container"
+    command: docker run -itd -P websrv
