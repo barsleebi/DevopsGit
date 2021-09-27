@@ -17,7 +17,7 @@ On Master Server:**
 
 **
 On Slave Server:**
-5) create path for Jenkins workspace in my case i used and created a node in Jenkins with below working directory
+6) create path for Jenkins workspace in my case i used and created a node in Jenkins with below working directory
     #mkdir -p /devOps/jenkins/workspace/
 7) make sure this path is changed in "**slave_web_build.yml**" for docker to build images.
 
